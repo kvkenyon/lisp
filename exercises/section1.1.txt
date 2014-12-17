@@ -1,0 +1,36 @@
+Exercise 1.1
+
+>> 10
+>> 12
+>> 8
+>> 3
+>> 6
+>> 19
+>> #f
+>> 4
+>> 16
+>> 6
+>> 16
+
+Exercise 1.2
+//In code files
+
+Exercise 1.3
+//In code files
+if ( a > b) a is in it
+	if (b > c) b is in it
+		c is in it
+if ( a < b) b is in it
+	if (a > c) a is in it
+		c is in it
+
+Exercise 1.4
+If b is greater than 0, we return the operator + since we are adding a to the absolute value
+of b. Clearly if b is positive, we just add whatever a is to it.
+Now if b is not greater than 0, we must return the operator -. since we are adding absolute value
+we must cancel out the negative, and we all know that a - (- b ) == a + b. 
+
+Exercise 1.5
+For an applicative-order evaluation the code will never run. Since (p) will constantly call itself we never get to the call of test.
+For a normal-order evaluation we will call test. But then get stuck.
+ 
