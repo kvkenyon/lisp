@@ -75,21 +75,5 @@
       1
       (* 2 (pow2 (- n 1)))))
 
-;;; Exercise 1.11
-;;; f(n) = n , n <3
-;;; f(n) = f(n-1) + 2f(n-2) + 3f(n-3) n>=3
 
-;;; Recursive Procedure
-(define (three-fib-scaled n)
-  (if (< n 3)
-      n
-      (+ (three-fib-scaled (- n 1))
-         (* 2 (three-fib-scaled (- n 2)))
-         (* 3 (three-fib-scaled (- n 3))))))
-
-;;; Iterative Procedure
-(define (three-fib-scaled2 n)
-  (three-fib-iter 1 2 3 n))
-
-(define (three-fib-iter a b c count)
   

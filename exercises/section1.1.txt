@@ -33,4 +33,17 @@ we must cancel out the negative, and we all know that a - (- b ) == a + b.
 Exercise 1.5
 For an applicative-order evaluation the code will never run. Since (p) will constantly call itself we never get to the call of test.
 For a normal-order evaluation we will call test. But then get stuck.
+
+Exercise 1.6
+By applicative-order evaluation, new-if will be applied to the evaluated combinations. i.e. all combinations
+will be evaluated. Clearly this leads to an infinite loop, since sqr-itr will be called again and again.
+
+Exercise 1.7
+//Coming back later
+
+Exercise 1.8
+//In code files
+
+
+
  
