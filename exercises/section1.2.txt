@@ -165,6 +165,6 @@ Exercise 1.20
 2
 5 remainders
 
-
-
-
+Exercise 1.26
+Since scheme uses applicative order evaluation, we are calling exmod twice on each even instance of the exponent. Instead, we'd like to compute exmod once, then pass that value to the square procedure. This
+allows us to reduce the problem space by 1/2 each time, giving us a O(log n) runtime.
