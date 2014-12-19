@@ -118,7 +118,7 @@ f(1) = 1
 f(2) = f(0) +f(0)
 f(3) = f(1)
 
-Exercise 1.13 -- Proof for later *****
+Exercise 1.13 -- Proof for later --
 
 Exercise 1.14
 
@@ -134,5 +134,37 @@ sine(4.05) -> (p (sine(1.3499999999999))
 
 Five executions of p.
 O(2 log_3 a)
+
+Exercise 1.16
+
+//Iterative (expt-iter b counter product)
+product = 1;
+while (counter != 0) {
+	product = product * b;
+	--counter;
+} // computes b^n ; n = counter
+return product;
+
+Exercise 1.20
+
+(gcd 206 40)
+(gcd 40 (remainder 206 40)) -- Called in if
+(gcd (remainder 206 40) (remainder 40 (remainder 206 40))) -- called again and again
+(gcd (remainder 40 (remainder 206 40)) (remainder (remainder 206 40) (remainder 40 (remainder 206 40))))
+9 remainders
+
+(gcd 206 40)
+(gcd 40 (remainder 206 40))
+(gcd 40 6)
+(gcd 6 (remainder 40 6))
+(gcd 6 4)
+(gcd 4 (remainder 6 4))
+(gcd 4 2)
+(gcd 2 (remainder 4 2))
+(gcd 2 0)
+2
+5 remainders
+
+
 
 

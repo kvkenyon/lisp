@@ -1,3 +1,19 @@
+;;; -------
+;;; Helpers
+;;; -------
+
+(define square 
+  (lambda (a) 
+    (* a a)))
+
+(define double
+  (lambda (a)
+    (* 2 a)))
+
+(define halve
+  (lambda (a)
+    (/ a 2)))
+
 ;;; Exercise 1.2
 
 (/ (+ 5 4 
@@ -68,5 +84,48 @@
         (else (+ (pascal (- r 1) (- c 1))
                  (pascal (- r 1) c)))))
         
-        
-        
+;;; Exercise 1.16
+;;; Fast-Exponentiation Iterative
+
+(define (fast-expt-iter b n a)
+  (cond ((= n 0) a) 
+        ((even? n) (fast-expt-iter (square b) (/ n 2) a))
+        (else (fast-expt-iter b (- n 1) (* a b)))))
+      
+(define (fast-expt b n)
+  (fast-expt-iter b n 1))
+
+;;; Exercise 1.17
+
+(define (mult_r x y)
+  (cond ((= y 0) 0)
+        ((even? y) (mult_r (double x) (halve y)))
+        (else (+ x (mult_r x (- y 1))))))
+;;; Exercise 1.18
+
+(define (mult-iter x y a)
+  (cond ((= y 0) a)
+        ((even? y) (mult-iter (double x) (halve y) a))
+        (else (mult-iter x (- y 1) (+ a x)))))
+
+(define mult_i (lambda (x y)
+                 (mult-iter x y 0)))
+
+;;; Exercise 1.19
+
+(define (fib n)
+  (fib-iter 1 0 0 1 n))
+
+(define (fib-iter a b p q count)
+  (cond ((= count 0) b)
+        ((even? count)
+         (fib-iter a
+                   b
+                   0     ; compute p'
+                   2      ; compute q'
+                   (/ count 2)))
+        (else (fib-iter (+ (* b q) (* a q) (* a p))
+                        (+ (* b p) (* a q))
+                        p
+                        q
+                        (- count 1)))))
