@@ -112,6 +112,13 @@
                  (mult-iter x y 0)))
 
 ;;; Exercise 1.19
+(define (fib-test n)
+  (fib-iter-test 1 0 n))
+
+(define (fib-iter-test a b count)
+  (if (= count 0)
+      b
+      (fib-iter-test (+ a b) a (- count 1))))
 
 (define (fib n)
   (fib-iter 1 0 0 1 n))
@@ -121,11 +128,30 @@
         ((even? count)
          (fib-iter a
                    b
-                   0     ; compute p'
-                   2      ; compute q'
+                   (+ (square p) (square q))     ; compute p'
+                   (+ (* 2 p q) (square q))      ; compute q'
                    (/ count 2)))
         (else (fib-iter (+ (* b q) (* a q) (* a p))
                         (+ (* b p) (* a q))
                         p
                         q
                         (- count 1)))))
+
+;;; Exercise 1.22
+
+(define (divides? a b)
+  (= (remainder a b) 0))
+
+(define (smallest-divisor n)
+  (find-divisor n 2))
+
+(define (find-divisor n test)
+  (cond ((> (square test) n) n)
+        ((divides n test) test)
+        (else (find-divisor n (+ 1 test)))))
+
+(define (prime? n)
+  (= (smallest-divisor n) n))
+
+(define (search-for-primes a b) a)
+  
